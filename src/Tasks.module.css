@@ -1,0 +1,33 @@
+.btnsGroup {
+  text-align: center;
+}
+
+.btnFilter {
+  font: 400 14px "Montserrat";
+}
+
+.areaTodo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.deleteTodo {
+  height: 28px;
+}
+
+.todoName {
+  width: 70%;
+  height: 30px;
+  text-align: center;
+  font: 400 14px "Montserrat";
+  /* background-color: #df87ff; */
+}
+
+.checkBox {
+  width: 22px;
+  height: 22px;
+}
