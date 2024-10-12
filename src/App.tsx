@@ -6,6 +6,7 @@ import { ITodos } from "./types/todos";
 import { handleAdd } from "./utils/handleAdd/handleAdd";
 
 function App() {
+  const [countItemsLeft, setCountItemsLeft] = useState<number>(0);
   const [value, setValue] = useState<string>("");
   const [todos, setTodos] = useState<ITodos[]>([]);
 
@@ -28,7 +29,14 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
+    let count = 0;
+    todos.forEach((elem) => {
+      if (!elem.completed) count++;
+    });
+    setCountItemsLeft(count);
   }, [todos]);
+
+  // useEffect(() => {}, []);
   return (
     <div className={styles.block}>
       <header className={styles.head}>Todo List</header>
@@ -55,6 +63,7 @@ function App() {
         </Button>
       </div>
       <Tasks todos={todos} setTodos={setTodos} />
+      <p className={styles.itemsLeft}>{countItemsLeft} items left</p>
     </div>
   );
 }

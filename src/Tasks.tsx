@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Checkbox } from "@mui/material";
 import styles from "./Tasks.module.css";
 import { ITasksTodos } from "./types/todos";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { handleDelete } from "./utils/handleDelete/handleDelete";
 import { handleComplete } from "./utils/handleComplete/handleComplete";
 import { handleSetFilter } from "./utils/handleSetFilter/handleSetFilter";
@@ -10,6 +10,8 @@ const Tasks: React.FC<ITasksTodos> = ({ todos, setTodos }) => {
   const [filterTodos, setFilterTodos] = useState<
     "All" | "Active" | "Completed"
   >("All");
+
+  
   return (
     <div>
       <div className={styles.btnsGroup}>
